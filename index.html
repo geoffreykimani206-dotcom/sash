@@ -117,10 +117,42 @@ button:hover { transform: scale(1.1); }
 </div>
 
 <script>
-function answerYes() {
-    document.getElementById("answer").innerHTML =
-    "SASHA!!! ❤️ You just made my heart dance! ✨";
+
+async function answerYes() {
+    const answer = document.getElementById("answer");
+
+    answer.innerHTML = "Sending your answer, Sasha... ❤️";
+
+    try {
+        const response = await fetch(
+            "https://formsubmit.co/ajax/geoffreykimani206@gmail.com",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    name: "Sasha",
+                    message: "Sasha clicked YES on the dating website! ❤️",
+                    _subject: "Sasha said YES! ❤️💕"
+                })
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Email could not be sent");
+        }
+
+        answer.innerHTML =
+            "❤️ Sasha! Your answer has been received. ✨";
+
+    } catch (error) {
+        answer.innerHTML =
+            "Sorry, something went wrong. Please try again. 💕";
+    }
 }
+
 
 function answerMaybe() {
     document.getElementById("answer").innerHTML =
