@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sasha ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: radial-gradient(circle, #66106f, #13001e);
+}
+
+.container { padding: 20px; }
+
+.name {
+    font-size: clamp(55px, 12vw, 100px);
+    font-weight: bold;
+    color: #ff70d0;
+    text-shadow: 0 0 15px #ff00ae, 0 0 40px #ff00ae;
+    animation: dance 1.5s infinite;
+}
+
+@keyframes dance {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-25px) rotate(5deg) scale(1.12); }
+}
+
+h2 {
+    color: #ffd1ef;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px pink; }
+    to { text-shadow: 0 0 25px hotpink; }
+}
+
+p {
+    max-width: 550px;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+button {
+    margin: 10px;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    background: #ff269e;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+button:hover { transform: scale(1.1); }
+
+#answer {
+    margin-top: 20px;
+    color: #ff9cdd;
+    font-size: 23px;
+}
+
+.heart {
+    position: absolute;
+    bottom: -40px;
+    animation: float 6s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="name">SASHA ❤️</div>
+
+    <h2>You Are My MAGIC ✨</h2>
+
+    <p>
+        Hey Sasha! 💕<br>
+        You are someone special to me.<br>
+        Every time I think about you, I smile.<br>
+        I wish to create beautiful memories with you.
+        <br><br>
+        <strong>
+        Sasha, would you give me a chance
+        to be more than just a friend?
+        <br>
+        Would you like us to start dating? ❤️
+        </strong>
+    </p>
+
+    <button onclick="answerYes()">YES ❤️</button>
+    <button onclick="answerMaybe()">LET ME THINK 💕</button>
+
+    <div id="answer"></div>
+
+</div>
+
+<script>
+function answerYes() {
+    document.getElementById("answer").innerHTML =
+    "SASHA!!! ❤️ You just made my heart dance! ✨";
+}
+
+function answerMaybe() {
+    document.getElementById("answer").innerHTML =
+    "Take your time, Sasha. I'll respect your answer. 💕";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 8000);
+}
+
+setInterval(createHeart, 350);
+</script>
+</body>
+</html>
